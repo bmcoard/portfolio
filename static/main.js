@@ -1,33 +1,20 @@
 
 const quiz = document.getElementById("quiz")
 const portfolio = document.getElementById("portfolio")
-const todoList = document.getElementById("to do list")
-//const submit = document.getElementById("submit")
+const projectsElement = document.getElementById("projects")
 
-// document.getElementById("portfolio-container").style.display="none"
-// quiz.addEventListener("click", (event) => select(quiz))
-// portfolio.addEventListener("click", (event) => select(portfolio))
-// todoList.addEventListener("click", (event) => select(todoList))
 document.getElementById("submit").addEventListener("click", (event) => addContact())
-// document.getElementById("login").addEventListener("click", (event) => login())
 
-// async function login(){    
-//     const username = document.getElementById("username").value
-//     const response = await fetch("/api/login", { //  /login?
-//         method: "POST",
-//         headers: {"Content-Type": "application/json"},
-//         body: JSON.stringify({username}) 
-//     })
+const projectsData = [{
+    "name":"Quiz",
+    "codeLink":"https://github.com/bmcoard/Quiz-App",
+    "technologies":["HTML/CSS", "Javascript", "ExpressJS", "NodeJS", "MongoDb"],
+    "description":"User answers quiz questions stored in the backend Mongo Database. There is functionality to login to an account, create new questions, create new categories, and have answers graded",
+    "imageLink": "images/quiz.png"
+}]
 
-//     if( !response.ok ) {
-//         console.error( "Error logging in user" );
-//         return;
-//     }
-    
-//     else{
-//         document.getElementById("portfolio-container").style.display="block"
-//     }
-// }
+updateProjectsDiv(projectsData)
+
 
 async function addContact(){
     const name = document.getElementById("name").value
@@ -50,3 +37,56 @@ async function addContact(){
         document.getElementById("msg").textContent = "Submitted"
     }
 }
+
+
+function updateProjectsDiv(projectsData){
+    projectsData.forEach((project) =>{
+        const projectDiv = createProjectDiv(project)
+        projectsElement.appendChild(projectDiv)
+    })
+}
+
+function createProjectDiv(projectData){
+    const projectDivElement = document.createElement("div")
+    const projectLinkElement = document.createElement("a")
+    const projectParagraphElement = document.createElement("p")   
+    const projectImgElement = document.createElement("img")
+    projectDivElement.classList.add("project")
+
+    projectLinkElement.href = projectData.codeLink
+    projectLinkElement.textContent = projectData.name
+    projectParagraphElement.textContent = projectData.description
+    projectImgElement.src = projectData.imageLink
+
+    const projectTechElement = createTechDiv(projectData.technologies)
+
+    projectDivElement.appendChild(projectLinkElement)
+    projectDivElement.appendChild(projectTechElement)
+    projectDivElement.appendChild(projectParagraphElement)
+    projectDivElement.appendChild(projectImgElement)
+
+    console.log("projectDivElement:" + projectDivElement)
+    return projectDivElement
+}
+
+function createTechDiv(projectTech){
+    const projectTechElement = document.createElement("div")
+    const projectTechHeaderElement = document.createElement("h3")
+    const projectTechListElement = document.createElement("ul")
+    projectTechElement.classList.add("technologies")
+
+    projectTechHeaderElement.textContent = "Technologies"
+    projectTechElement.appendChild(projectTechHeaderElement)
+
+
+    projectTech.forEach((tech) => {
+        const techItem = document.createElement("li")
+        techItem.textContent = tech
+        projectTechListElement.appendChild(techItem)
+    })
+
+    projectTechElement.appendChild(projectTechListElement)
+
+    return projectTechElement
+}
+

@@ -3,22 +3,48 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="portfolio-container">
+<body class= "portfolio-container">
   <h1 class="BMC">Brian Coard</h1>
-  <div class="projects">
-    <h2 style="text-align:center">Projects</h2> //anchor tags
-    <button id="quiz">Quiz App</button>
-        <p id="program1"></p>
-    <button id="portfolio">Portfolio</button>
-        <p id="program2"></p>
-    <button id="to do list">To Do List</button>
-        <p id="program3"></p>
+  <div id = "projects" class="projects">
+    <h2>Projects</h2>
+    <!--<div class="project">
+      <a href = "https://github.com/bmcoard/Quiz-App">Quiz App</a> 
+      <div class="technologies">
+        <h3>Technologies</h3>
+        <ul>
+            <li>HTML/CSS</li>
+            <li>Javascript</li>
+            <li>ExpressJS</li>
+            <li>NodeJS</li>
+            <li>MongoDb</li>
+        </ul>
+      </div>
+      <p>User answers quiz questions stored in the backend Mongo Database. There is functionality to login to an account, create new questions, create new categories, and have answers graded.</p>
+      <img src = "images/quiz.png"/>
+    </div>
+      <div class="project">
+        <a href = "https://github.com/bmcoard/Quiz-App">Portfolio</a> 
+        <div class="technologies">
+          <h3>Technologies</h3>
+          <ul>
+              <li>HTML/CSS</li>
+              <li>Javascript</li>
+              <li>ExpressJS</li>
+              <li>NodeJS</li>
+              <li>MongoDb</li>
+          </ul>
+        </div>
+        <p>Webpage presents programming projects I have completed, and my personal details. Functionality for sending email, accessing Github, and admin features</p>
+        <img src = "images/quiz.png"/>
+      </div>
+      -->
   </div>
     
   <div class="skills">
     <h2>Skills</h2>
     <ul>
         <li>Javascript</li>
+        <li>HTML</li>
         <li>Problem Solving</li>
         <li>Critical Thinking</li>
     </ul>
@@ -26,7 +52,7 @@
 
   <div class="resume">
     <h2>Resume</h2>
-    <p><strong>Education:</strong> Cornell University</p>
+    <p><strong>Education:</strong>Cornell University</p>
     <p><strong>Experience</strong></p>
     <ul>
         <li>Emergency Medical Technician</li>
@@ -41,13 +67,8 @@
     <p>Email<input id="email" type="text"></p>
     <p>Employer<input id="employer" type="text"></p>
     <p>Message<input id="message" type="text"></p>
-    <p>>bmcoard@gmail.com</p>
+    <p>bmcoard@gmail.com</p>
     <button id="submit">Submit</button>
-  </div>
-
-  <div class="admin">
-    <p><input id="user" type="text"></p>
-    <p><input id="password" type="text"></p>
   </div>
 
   <script src=main.js></script>
