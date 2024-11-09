@@ -13,7 +13,36 @@ const projectsData = [{
     "imageLink": "images/quiz.png"
 }]
 
-updateProjectsDiv(projectsData)
+// const projectsData2 [{}]
+// <div class="project">
+//   <a href = "https://github.com/bmcoard/Quiz-App">Portfolio</a> 
+//   <div class="technologies">
+//     <h3>Technologies</h3>
+//     <ul>
+//         <li>HTML/CSS</li>
+//         <li>Javascript</li>
+//         <li>ExpressJS</li>
+//         <li>NodeJS</li>
+//         <li>MongoDb</li>
+//     </ul>
+//   </div>
+//   <p>Webpage presents programming projects I have completed, and my personal details. Functionality for sending email, accessing Github, and admin features</p>
+//   <img src = "images/quiz.png"/>
+// </div>
+// -->
+getProjects()
+
+async function getProjects(){
+    const response = await fetch("/api/portfolio/projects")
+
+    if( !response.ok ) {
+        console.error( "Error retrieving project" );
+        return;
+    }
+    
+    const data = await response.json()
+    updateProjectsDiv(data.projects)
+}
 
 
 async function addContact(){

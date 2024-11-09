@@ -1,0 +1,46 @@
+<head>
+    <title>Admin</title>
+    <link href="admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <table id="contacts" border="10"></table>
+    <table id="projects" border="10"></table>
+    <p>test</p>
+    <form id ="create">
+        <div>
+            <label for="title">Title</label>
+            <input id="title" type ="text" name="title">
+        </div>
+
+        <div>
+            <label for="link">Link</label>
+            <input id="link" type ="text" name="link">
+        </div>
+
+        <div>
+            <label for="technology">Technologies</label>
+            <input id="technology" type ="text">
+            <button id="add-tech" type="button" class="add-tech">Add</button>
+
+            <div id="added-technologies" class="added-technologies">
+
+            </div>
+        </div>
+
+
+        <div>
+            <label for="description">Description</label>
+            <input id="description" type ="text" name="description">
+        </div>
+
+        <div>
+            <label for="image">Image Link</label>
+            <input id="image" type ="text" name="image">
+        </div>
+
+        <button type ="submit">Submit</button>
+    </form>
+
+    <script src="admin.js">console.log("java")</script>
+</body>

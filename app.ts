@@ -1,6 +1,7 @@
 const startDatabase = require("./services/databaseService")
 const contactsRouter = require("./api/submit");
 const adminRouter = require("./api/admin");
+const portfolioRouter = require("./api/portfolio")
 const {sendEmail} = require("./services/nodemailer")
 const CORS = require("cors")
 
@@ -11,9 +12,10 @@ const app = express();
 const path = require("path");
 
 startDatabase()
-app.use(CORS());
+app.use(CORS()); //content origin resource sharing - gives permission to have domains access server
 app.use("/api", contactsRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/portfolio", portfolioRouter)
 
 
 app.listen(3003, () => {
@@ -23,7 +25,7 @@ app.listen(3003, () => {
 const staticDirectory = path.join(__dirname, "static");
 app.use(express.static(staticDirectory));
 app.get("/admin", (request:Request, response:Response) => {
-    response.sendFile(path.join(staticDirectory, "admin.html"));
+    response.sendFile(path.join(staticDirectory, "/admin/admin.html"));
 });
 
 app.get("*", (request:Request, response:Response) => {
