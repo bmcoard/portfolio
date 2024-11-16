@@ -1,1 +1,1 @@
-web: node prod
+web: node test.js
