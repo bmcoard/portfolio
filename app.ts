@@ -18,7 +18,8 @@ app.use("/api/admin", adminRouter);
 app.use("/api/portfolio", portfolioRouter)
 
 
-app.listen(3003, () => {
+const PORT = process.env.PORT || 3003 //heroku
+app.listen(PORT, () => {
     console.log("server running on port 3003");
 });
 
