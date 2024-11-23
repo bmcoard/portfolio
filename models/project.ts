@@ -1,7 +1,16 @@
-//const mongoose = require("mongoose");
-//const { Schema } = mongoose;
+// const mongoose = require("mongoose");
+// const { Schema } = mongoose;
 
-const projectSchema = new Schema({
+//fixed errors with namespaces.. google search
+
+namespace ProjectFile {
+    export const mongoose = require("mongoose");
+    export const { Schema } = ProjectFile.mongoose;
+}
+
+
+
+const projectSchema = new ProjectFile.Schema({
     name: { type: String },
     codeLink: {type: String},
     technologies: { type: [String] },
@@ -10,5 +19,5 @@ const projectSchema = new Schema({
     ID: {type: String}
 });
 
-const Project = mongoose.model("Projects", projectSchema); //"Projects" is the name in the database
+const Project = ProjectFile.mongoose.model("Projects", projectSchema); //"Projects" is the name in the database
 module.exports = Project;

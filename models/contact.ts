@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+
 const contactSchema = new Schema({
     contactId: { type: Number }, // defines properties of field userId
     name: { type: String },
