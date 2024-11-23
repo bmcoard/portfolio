@@ -1,7 +1,13 @@
 "use strict";
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
-const projectSchema = new Schema({
+// const mongoose = require("mongoose");
+// const { Schema } = mongoose;
+//fixed errors with namespaces.. google search
+var ProjectFile;
+(function (ProjectFile) {
+    ProjectFile.mongoose = require("mongoose");
+    ProjectFile.Schema = ProjectFile.mongoose.Schema;
+})(ProjectFile || (ProjectFile = {}));
+const projectSchema = new ProjectFile.Schema({
     name: { type: String },
     codeLink: { type: String },
     technologies: { type: [String] },
@@ -9,5 +15,5 @@ const projectSchema = new Schema({
     imageLink: { type: String },
     ID: { type: String }
 });
-const Project = mongoose.model("Projects", projectSchema); //"Projects" is the name in the database
+const Project = ProjectFile.mongoose.model("Projects", projectSchema); //"Projects" is the name in the database
 module.exports = Project;

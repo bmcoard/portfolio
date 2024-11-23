@@ -23,7 +23,7 @@ function sendEmail(recipient, subject, body) {
             from: '"Brian Coard" bmcoard@gmail.com', // sender address
             to: recipient, // list of receivers
             subject: subject, // Subject line
-            text: "Hello world?", // plain text body
+            text: body // plain text body
         };
         console.log("Sending: ", mailOptions);
         const info = yield transporter.sendMail(mailOptions);
